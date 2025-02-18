@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import TopBar from '@/shared/ui/topbar/topbar';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -30,10 +31,12 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="index" options={{ title: 'Чат' }} />
+        <Stack.Screen name="ContactScreen" options={{ title:'Контакты' }} />
+        <Stack.Screen name="LoginScreen" options={{ title: 'Логин' }} />
+        <Stack.Screen name="MessageScreen" options={{ title: 'Чаты' }} />
       </Stack>
-      <StatusBar style="auto" />
+      <TopBar/>
     </ThemeProvider>
   );
 }
