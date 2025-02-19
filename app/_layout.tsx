@@ -1,3 +1,4 @@
+
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -31,12 +32,12 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="index" options={{ title: 'Чат' }} />
-        <Stack.Screen name="ContactScreen" options={{ title:'Контакты' }} />
+        <Stack.Screen name="index" options={{ title: 'Чаты' }} />
+        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты' }} />
         <Stack.Screen name="LoginScreen" options={{ title: 'Логин' }} />
-        <Stack.Screen name="MessageScreen" options={{ title: 'Чаты' }} />
+        <Stack.Screen name="MessageScreen" options={{ title: 'Чат' }} />
       </Stack>
-      <TopBar/>
+      <TopBar />
     </ThemeProvider>
   );
 }

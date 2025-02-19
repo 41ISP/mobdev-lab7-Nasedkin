@@ -1,33 +1,33 @@
 import { useRouter } from "expo-router"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-const router = useRouter()
-
-const handleContacts = () =>{
-    router.push('/ContactScreen')
-}
-const handleChat = () =>{
-    router.push('/')
-}
-const handleChats = () =>{
-    router.push('/MessageScreen')
-}
 const TopBar = () => {
+    const router = useRouter()
+    
+    const handleContacts = () =>{
+        router.push('/ContactScreen')
+    }
+    const handleChat = () =>{
+        router.push('/')
+    }
+    const handleChats = () =>{
+        router.push('/MessageScreen')
+    }
     return(
         <View style={styles.container}>
-            <TouchableOpacity onPress={handleChats}>
+            <TouchableOpacity style={styles.btn} onPress={handleChats}>
                 <Text style={styles.text}>
-                    Чаты
+                    Чат
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleContacts}>
+            <TouchableOpacity style={styles.btn} onPress={handleContacts}>
                 <Text style={styles.text}>
                     Контакты
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity  onPress={handleChat}>
+            <TouchableOpacity style={styles.btn} onPress={handleChat}>
                 <Text style={styles.text}>
-                    Чат
+                    Чаты
                 </Text>
             </TouchableOpacity>
         </View>
@@ -36,18 +36,23 @@ const TopBar = () => {
 const styles = StyleSheet.create({
     container: {
       alignSelf: 'flex-start',
-      backgroundColor: 'lavander',
       flexDirection: 'row',
       justifyContent:'space-between',
-      padding: 10,
+      backgroundColor: 'crimson',
       width: '100%'
     },
     text: {
-        color: 'goldenrod',
-        fontSize: 24,
-        borderColor: 'navy',
-        borderWidth: 3,
-        width: "auto"
+        color: 'cyan',
+        fontSize: 28,
+        padding: 5,
+        width: "auto",
+        textAlign: 'center',
+    },
+    btn:{
+        flexGrow: 1,
+        borderColor: 'black',
+        borderWidth: 1,
     }
+    
   });
 export default TopBar
