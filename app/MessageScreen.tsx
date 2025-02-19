@@ -1,3 +1,4 @@
+import Message from "@/shared/ui/message/message";
 import MessagebarInput from "@/shared/ui/messageinput/messageinput";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -10,27 +11,20 @@ export default function MessageScreen() {
                     <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
                     <View style={styles.somemargin}>
                         <Text style={styles.text}>
-                            ФИО Пользователя
+                            Имя пользователя
                         </Text>
                         <Text style={styles.text2}>
-                            Онлайн/Оффлайн
+                            Онлайн
                         </Text>
                     </View>
                 </View>
 
+                {/* Вывод сообщений */}
                 <ScrollView>
-                    <View style={styles.in}>
-                        <Text style={{ color: 'goldenrod' }}>
-                            Входящее сообщение
-                        </Text>
-                    </View>
-
-                    <View style={styles.out}>
-                        <Text style={{ color: 'navy' }}>
-                            Исходящее сообщение
-                        </Text>
-                    </View>
+                <Message/> 
+                <Message other/> 
                 </ScrollView>
+
             </View>
             <MessagebarInput />
         </SafeAreaProvider >
@@ -43,34 +37,14 @@ const styles = StyleSheet.create({
         flex: 1
     },
     info: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'crimson',
         borderBottomColor: 'navy',
         padding: 5,
         borderBottomWidth: 2,
         width: '100%',
         flexDirection: 'row',
     },
-    in: {
-        backgroundColor: 'navy',
-        borderWidth: 2,
-        borderRadius: 25,
-        borderColor: "darkgoldenrod",
-        width: '60%',
-        height: 'auto',
-        padding: 10,
-        margin: 10
-    },
-    out: {
-        backgroundColor: 'tomato',
-        borderWidth: 2,
-        borderRadius: 25,
-        borderColor: "navy",
-        width: '60%',
-        height: 'auto',
-        padding: 10,
-        margin: 10,
-        alignSelf: 'flex-end'
-    },
+    
     icon: {
         width: 50,
         height: 50,
@@ -82,11 +56,11 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     text: {
-        color: 'darkcyan',
+        color: 'cyan',
         fontSize: 24
     },
     text2: {
-        color: 'tomato',
+        color: 'lavender',
         fontSize: 16
     }
 });

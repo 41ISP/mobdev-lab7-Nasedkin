@@ -11,21 +11,15 @@ export default function Index() {
         <SafeAreaProvider>
             <View style={styles.container}>
                 <ScrollView>
-                    <View style={styles.chat}>
+                    <View style={styles.chat} onTouchEnd={handleOpenChat}>
                         <View >
                             <Text style={styles.text}>
                                 Наименование чата
                             </Text>
                             <Text style={styles.text2}>
-                                Последнее сообщение + время отправки
+                                Последнее сообщение
                             </Text>
                         </View>
-
-                        <TouchableOpacity onPress={handleOpenChat}>
-                            <Text style={styles.message}>
-                                ✉
-                            </Text>
-                        </TouchableOpacity>
                     </View>
                 </ScrollView>
             </View>
@@ -35,31 +29,25 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'lightyellow',
-        flex: 1
-    },
-    message: {
-        paddingRight: 10,
-        fontSize: 75
+        backgroundColor: 'pink',
+        flex: 1,
+        padding: 20
     },
     chat: {
         borderWidth: 2,
         borderColor: 'navy',
-        borderRadius: 15,
-        width: '90%',
-        padding: 5,
-        marginTop: 20,
-        alignSelf: 'center',
+        borderRadius: 5,
+        padding: 10,
         flexDirection: 'row',
-        backgroundColor: 'pink',
+        backgroundColor: 'crimson',
         justifyContent: 'space-between'
     },
     text: {
-        color: 'darkcyan',
+        color: 'cyan',
         fontSize: 24
     },
     text2: {
-        color: 'tomato',
+        color: 'lavender',
         fontSize: 16
     }
 });

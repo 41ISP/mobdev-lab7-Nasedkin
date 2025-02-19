@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function ContactScreen() {
@@ -11,23 +11,24 @@ export default function ContactScreen() {
         <SafeAreaProvider>
             <View style={styles.container}>
                 <View>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={{color: 'navy', fontSize: 24}}>
+                            Показать онлайн
+                        </Text>
+                        <Switch/>
+                    </View>
                     <ScrollView>
 
-                    <View style={styles.info}>
+                    <View style={styles.info} onTouchEnd={handleOpenChat}>
                         <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
                         <View style={styles.somemargin}>
                             <Text style={styles.text}>
-                                ФИО Пользователя
+                                Имя пользователя
                             </Text>
                             <Text style={styles.text2}>
-                                Онлайн/Оффлайн
+                                Онлайн
                             </Text>
                         </View>
-                        <TouchableOpacity onPress={handleOpenChat}>
-                            <Text style={styles.message}>
-                            ✉
-                            </Text>
-                        </TouchableOpacity>
                     </View>
                     </ScrollView>
                 </View>
@@ -37,24 +38,16 @@ export default function ContactScreen() {
 }
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'lightblue',
+        backgroundColor: 'pink',
         flex: 1,
-        alignContent: 'center',
-        alignItems: 'center',
         padding: 20
     },
-    message:{
-        padding: 10,
-        fontSize: 64
-    },
     info: {
-        backgroundColor: 'orange',
+        backgroundColor: 'crimson',
         borderColor: 'navy',
-        padding: 5,
-        maxHeight: '90%',
+        padding: 10,
         borderWidth: 2,
-        borderRadius: 10,
-        width: '100%',
+        borderRadius: 5,
         flexDirection: 'row',
     },
     icon: {
@@ -68,11 +61,11 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     text: {
-        color: 'darkmagenta',
+        color: 'cyan',
         fontSize: 24
     },
     text2: {
-        color: 'blue',
+        color: 'lavender',
         fontSize: 16
     }
 });

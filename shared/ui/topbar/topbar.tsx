@@ -17,17 +17,17 @@ const TopBar = () => {
         <View style={styles.container}>
             <TouchableOpacity style={styles.btn} onPress={handleChats}>
                 <Text style={styles.text}>
-                    Чат
+                ✉️ Чат
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn} onPress={handleContacts}>
                 <Text style={styles.text}>
-                    Контакты
+                📱 Контакты
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn} onPress={handleChat}>
                 <Text style={styles.text}>
-                    Чаты
+                📮 Чаты
                 </Text>
             </TouchableOpacity>
         </View>
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
       alignSelf: 'flex-start',
       flexDirection: 'row',
       justifyContent:'space-between',
-      backgroundColor: 'crimson',
-      width: '100%'
+      backgroundColor: 'darkred',
+      width: '100%',
     },
     text: {
-        color: 'cyan',
+        color: 'lavender',
         fontSize: 28,
         padding: 5,
         width: "auto",
