@@ -33,12 +33,12 @@ export default function MessageScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'pink',
+        backgroundColor: '#577399',
         flex: 1
     },
     info: {
-        backgroundColor: 'crimson',
-        borderBottomColor: 'navy',
+        backgroundColor: '#01172F',
+        borderBottomColor: 'black',
         padding: 5,
         borderBottomWidth: 2,
         width: '100%',
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     icon: {
         width: 50,
         height: 50,
+        backgroundColor: '#577399',
         borderRadius: 25,
         borderColor: "black",
         borderWidth: 3
@@ -56,11 +57,13 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     text: {
-        color: 'cyan',
-        fontSize: 24
+        color: '#F2BB05',
+        fontSize: 24,
+        fontWeight: 'bold'
     },
     text2: {
-        color: 'lavender',
-        fontSize: 16
+        color: '#E7E7E7',
+        fontSize: 16,
+        fontWeight: 'bold'
     }
 });

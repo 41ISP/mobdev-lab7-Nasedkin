@@ -16,22 +16,22 @@ const MessagebarInput = () => {
 const styles = StyleSheet.create({
     input: {
         borderWidth: 2,
-        borderColor: 'navy',
+        borderColor: '#01172F',
         borderRadius: 5,
         margin: 10,
         width: '80%',
-        backgroundColor: 'pink',
-        color: 'navy'
+        backgroundColor: '#A2999E',
+        color: '#01172F'
     },
     cntr: {
-        backgroundColor: 'crimson',
-        borderTopColor: 'navy',
+        backgroundColor: '#6F5E53',
+        borderTopColor: 'black',
         borderTopWidth: 2,
         flexDirection: 'row',
     },
     icon:{
         fontSize: 48,
-        color: 'pink',
+        color: '#01172F',
     },
 });
 export default MessagebarInput

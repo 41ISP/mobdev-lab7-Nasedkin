@@ -32,10 +32,10 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="index" options={{ title: 'Чаты' }} />
-        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты' }} />
-        <Stack.Screen name="LoginScreen" options={{ title: 'Логин' }} />
-        <Stack.Screen name="MessageScreen" options={{ title: 'Чат' }} />
+        <Stack.Screen name="index" options={{ title: 'Чаты' , headerTitleAlign: 'center'}} />
+        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты', headerTitleAlign: 'center' }} />
+        <Stack.Screen name="LoginScreen" options={{ title: 'Логин' , headerTitleAlign: 'center'}} />
+        <Stack.Screen name="MessageScreen" options={{ title: 'Чат' , headerTitleAlign: 'center'}} />
       </Stack>
       <TopBar />
     </ThemeProvider>

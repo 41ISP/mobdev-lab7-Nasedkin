@@ -17,17 +17,17 @@ const TopBar = () => {
         <View style={styles.container}>
             <TouchableOpacity style={styles.btn} onPress={handleChats}>
                 <Text style={styles.text}>
-                ✉️ Чат
+                ЧАТ
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn} onPress={handleContacts}>
                 <Text style={styles.text}>
-                📱 Контакты
+                КОНТАКТЫ
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn} onPress={handleChat}>
                 <Text style={styles.text}>
-                📮 Чаты
+                ЧАТЫ
                 </Text>
             </TouchableOpacity>
         </View>
@@ -38,20 +38,23 @@ const styles = StyleSheet.create({
       alignSelf: 'flex-start',
       flexDirection: 'row',
       justifyContent:'space-between',
-      backgroundColor: 'darkred',
+      backgroundColor: '#01172F',
       width: '100%',
     },
     text: {
-        color: 'lavender',
-        fontSize: 28,
+        color: '#FDFFFC',
+        fontSize: 24,
         padding: 5,
         width: "auto",
         textAlign: 'center',
+        fontWeight: 'bold',
+        
     },
     btn:{
         flexGrow: 1,
-        borderColor: 'black',
-        borderWidth: 1,
+        borderTopColor: 'black',
+        borderTopWidth: 2,
+        maxWidth: '33.3%',
     }
     
   });

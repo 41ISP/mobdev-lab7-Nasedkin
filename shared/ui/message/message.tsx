@@ -8,10 +8,10 @@ interface IMessage extends PropsWithChildren {
 const Message = ({other}: IMessage) => {
     return (
             <View style={other ? styles.out : styles.in}>
-                <Text style={{ color: 'lavender' }}>
-                    Исходящее сообщение
+                <Text style={{ color: '#01172F' , fontWeight: 'bold'}}>
+                    Сообщение
                 </Text>
-                <Text style={{ color: 'cyan' }}>
+                <Text style={{ color: '#01172F' , fontWeight: 'bold', textAlign: 'right'}}>
                     12:30
                 </Text>
             </View>
@@ -22,10 +22,10 @@ export default Message
 
 const styles = StyleSheet.create({
     in: {
-        backgroundColor: 'crimson',
+        backgroundColor: '#A2999E',
         borderWidth: 2,
         borderRadius: 5,
-        borderColor: "navy",
+        borderColor: "black",
         maxWidth: '60%',
         minWidth: '60%',
         height: 'auto',
@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
         margin: 10
     },
     out: {
-        backgroundColor: 'crimson',
+        backgroundColor: '#A2999E',
         borderWidth: 2,
         borderRadius: 5,
-        borderColor: "navy",
+        borderColor: "black",
         maxWidth: '60%',
         minWidth: '60%',
         height: 'auto',
