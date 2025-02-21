@@ -1,9 +1,10 @@
+import { IStorage, IUser, useStorage } from "@/shared/stor/stor";
 import Contact from "@/shared/ui/contact/contact";
+import { useState } from "react";
 import { Image, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function ContactScreen() {
-
 
     return (
         <SafeAreaProvider>
@@ -13,12 +14,13 @@ export default function ContactScreen() {
                 </Text>
                 <Switch />
             </View>
-            <View style={styles.container}>
-                <View>
-                    <Contact online/>
-                    <Contact />
+            <ScrollView style={styles.container}>
+                <View >
+                    <View>
+                        <Contact online />
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaProvider>
     )
 }

@@ -1,30 +1,32 @@
-import { PropsWithChildren } from "react";
+import { IStorage, useStorage } from "@/shared/stor/stor";
+import { PropsWithChildren, useState } from "react";
 import { Image, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 
-interface IStatus extends PropsWithChildren{
+interface IStatus extends PropsWithChildren {
     online?: boolean
-} 
+}
 
-const Contact = ({online} : IStatus) => {
+const Contact = ({ online }: IStatus) => {
+
+    const [users] = useState<IStorage>()
 
     const handleOpenChat = () => {
         alert('Будет открыт чат с пользователем')
     }
 
     return (
-        < ScrollView >
-            <View style={styles.info} onTouchEnd={handleOpenChat}>
-                <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
-                <View style={styles.somemargin}>
-                    <Text style={styles.text}>
-                        Имя пользователя
-                    </Text>
-                    <Text style={online ? styles.onlineUser : styles.offlineUser}>
-                        Онлайн/Оффлайн
-                    </Text>
-                </View>
+
+        <View style={styles.info} onTouchEnd={handleOpenChat}>
+            <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
+            <View style={styles.somemargin}>
+                <Text style={styles.text}>
+                    {useStorage().user.name}
+                </Text>
+                <Text style={online ? styles.onlineUser : styles.offlineUser}>
+                    Онлайн/Оффлайн
+                </Text>
             </View>
-        </ScrollView >
+        </View>
     )
 }
 

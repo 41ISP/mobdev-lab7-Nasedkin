@@ -10,16 +10,16 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import TopBar from '@/shared/ui/topbar/topbar';
 import { Header } from 'react-native/Libraries/NewAppScreen';
+import { useStorage } from '@/shared/stor/stor';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [userName, setUserName] = useState('')
-  const [userAuth, setUserAuth] = useState(false)
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
   });
+  const {user} = useStorage()
 
   useEffect(() => {
     if (loaded) {
@@ -32,14 +32,13 @@ export default function RootLayout() {
   }
 
   useEffect(()=>{
-    const userLogin = false
-    setUserAuth(userLogin)
-    if(userAuth) router.replace('/(tabs)')
+    if(!user.name) {
+      router.replace('/login')
+    }
+      
   }, [])
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ title: 'Логин' , headerTitleAlign: 'center'}}/>
-    </Stack>
+    <Stack/>
   );
 }
