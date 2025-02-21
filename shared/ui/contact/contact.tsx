@@ -11,7 +11,6 @@ const Contact = ({online} : IStatus) => {
         alert('Будет открыт чат с пользователем')
     }
 
-
     return (
         < ScrollView >
             <View style={styles.info} onTouchEnd={handleOpenChat}>
