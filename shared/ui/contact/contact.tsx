@@ -20,7 +20,8 @@ const Contact = ({ online }: IStatus) => {
             <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
             <View style={styles.somemargin}>
                 <Text style={styles.text}>
-                    {useStorage().user.name}
+                    {/* {useStorage().user.name} */}
+
                 </Text>
                 <Text style={online ? styles.onlineUser : styles.offlineUser}>
                     Онлайн/Оффлайн

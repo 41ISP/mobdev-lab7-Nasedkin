@@ -32,7 +32,7 @@ export default function RootLayout() {
   }
 
   useEffect(()=>{
-    if(!user.name) {
+    if(!user.id) {
       router.replace('/login')
     }
       
