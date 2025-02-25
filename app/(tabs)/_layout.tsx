@@ -37,9 +37,9 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="index" options={{ title: 'Чаты' , headerTitleAlign: 'center', headerRight: () => (<View><Text style={{color: 'white', fontSize: 20}} onPress={handlePress}>Выход</Text></View>)}} />
-        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты', headerTitleAlign: 'center' , headerRight: () => (<View><Text style={{color: 'white', fontSize: 20}} onPress={handlePress}>Выход</Text></View>)}} />
-        <Stack.Screen name="MessageScreen" options={{ title: 'Чат' , headerTitleAlign: 'center', headerRight: () => (<View><Text style={{color: 'white', fontSize: 20}} onPress={handlePress}>Выход</Text></View>)}} />
+        <Stack.Screen name="index" options={{ title: 'Чаты', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: 'white', fontSize: 20 }} onPress={handlePress}>Выход</Text></View>) }} />
+        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: 'white', fontSize: 20 }} onPress={handlePress}>Выход</Text></View>) }} />
+        <Stack.Screen name="MessageScreen" options={{ title: 'Чат', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: 'white', fontSize: 20 }} onPress={handlePress}>Выход</Text></View>) }} />
       </Stack>
       <TopBar />
     </ThemeProvider>

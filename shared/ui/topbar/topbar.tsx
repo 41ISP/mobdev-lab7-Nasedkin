@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
       alignSelf: 'flex-start',
       flexDirection: 'row',
       justifyContent:'space-between',
-      backgroundColor: '#01172F',
+      backgroundColor: '#1F0322',
       width: '100%',
     },
     text: {

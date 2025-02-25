@@ -21,8 +21,8 @@ export default function MessageScreen() {
 
                 {/* Вывод сообщений */}
                 <ScrollView>
-                <Message/> 
-                <Message other/> 
+                    <Message />
+                    <Message other />
                 </ScrollView>
 
             </View>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
     },
-    
+
     icon: {
         width: 50,
         height: 50,

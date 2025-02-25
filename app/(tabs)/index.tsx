@@ -8,9 +8,9 @@ export default function Index() {
 
     return (
         <SafeAreaProvider>
-            
-            <Stack.Screen name="index" options={{title:'otsuststvuet', headerShown: false}}/>
-            <ScrollView style={styles.container}> 
+
+            <Stack.Screen name="index" options={{ title: 'otsuststvuet', headerShown: false }} />
+            <ScrollView style={styles.container}>
                 <View >
                     <Chat />
                     <Chat />

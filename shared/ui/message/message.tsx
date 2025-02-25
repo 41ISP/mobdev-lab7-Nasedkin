@@ -4,17 +4,17 @@ import { StyleSheet, Text, View } from "react-native";
 interface IMessage extends PropsWithChildren {
     other?: boolean
 }
-
-const Message = ({other}: IMessage) => {
+const timestamp = new Date().toISOString().slice(11, 16);
+const Message = ({ other }: IMessage) => {
     return (
-            <View style={other ? styles.out : styles.in}>
-                <Text style={{ color: '#01172F' , fontWeight: 'bold'}}>
-                    Сообщение
-                </Text>
-                <Text style={{ color: '#01172F' , fontWeight: 'bold', textAlign: 'right'}}>
-                    12:30
-                </Text>
-            </View>
+        <View style={other ? styles.out : styles.in}>
+            <Text style={{ color: '#01172F', fontWeight: 'bold' }}>
+                Сообщение
+            </Text>
+            <Text style={{ color: '#01172F', fontWeight: 'bold', textAlign: 'right' }}>
+                {timestamp}
+            </Text>
+        </View>
     )
 }
 
@@ -22,7 +22,7 @@ export default Message
 
 const styles = StyleSheet.create({
     in: {
-        backgroundColor: '#A2999E',
+        backgroundColor: '#D4B483',
         borderWidth: 2,
         borderRadius: 5,
         borderColor: "black",
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         margin: 10
     },
     out: {
-        backgroundColor: '#A2999E',
+        backgroundColor: '#F8E5EE',
         borderWidth: 2,
         borderRadius: 5,
         borderColor: "black",
@@ -45,3 +45,4 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end'
     },
 });
+//1F0322

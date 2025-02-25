@@ -19,7 +19,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
   });
-  const {user} = useStorage()
+  const { user } = useStorage()
 
   useEffect(() => {
     if (loaded) {
@@ -31,14 +31,14 @@ export default function RootLayout() {
     return null;
   }
 
-  useEffect(()=>{
-    if(!user.id) {
+  useEffect(() => {
+    if (!user.id) {
       router.replace('/login')
     }
-      
+
   }, [])
 
   return (
-    <Stack/>
+    <Stack />
   );
 }
