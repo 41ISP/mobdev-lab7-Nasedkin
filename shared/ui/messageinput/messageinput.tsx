@@ -7,7 +7,7 @@ const MessagebarInput = () => {
             <TextInput placeholder="Введите сообщение" style={styles.input} />
             <TouchableOpacity>
                 <Text style={styles.icon}>
-                ➤
+                    ➤
                 </Text>
             </TouchableOpacity>
         </View>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 2,
         flexDirection: 'row',
     },
-    icon:{
+    icon: {
         fontSize: 48,
         color: '#01172F',
     },

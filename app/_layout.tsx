@@ -1,7 +1,7 @@
 
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { router, Stack } from 'expo-router';
+import { router, Slot, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
@@ -19,7 +19,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
   });
-  const { user } = useStorage()
+  
 
   useEffect(() => {
     if (loaded) {
@@ -31,14 +31,7 @@ export default function RootLayout() {
     return null;
   }
 
-  useEffect(() => {
-    if (!user.id) {
-      router.replace('/login')
-    }
-
-  }, [])
-
   return (
-    <Stack />
+    <Slot/>
   );
 }

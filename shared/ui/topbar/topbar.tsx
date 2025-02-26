@@ -3,31 +3,31 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 const TopBar = () => {
     const router = useRouter()
-    
-    const handleContacts = () =>{
+
+    const handleContacts = () => {
         router.push('/ContactScreen')
     }
-    const handleChat = () =>{
+    const handleChat = () => {
         router.push('/')
     }
-    const handleChats = () =>{
+    const handleChats = () => {
         router.push('/MessageScreen')
     }
-    return(
+    return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.btn} onPress={handleChats}>
                 <Text style={styles.text}>
-                ЧАТ
+                    ЧАТ
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn} onPress={handleContacts}>
                 <Text style={styles.text}>
-                КОНТАКТЫ
+                    КОНТАКТЫ
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn} onPress={handleChat}>
                 <Text style={styles.text}>
-                ЧАТЫ
+                    ЧАТЫ
                 </Text>
             </TouchableOpacity>
         </View>
@@ -35,11 +35,11 @@ const TopBar = () => {
 }
 const styles = StyleSheet.create({
     container: {
-      alignSelf: 'flex-start',
-      flexDirection: 'row',
-      justifyContent:'space-between',
-      backgroundColor: '#1F0322',
-      width: '100%',
+        alignSelf: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: '#1F0322',
+        width: '100%',
     },
     text: {
         color: '#FDFFFC',
@@ -48,14 +48,14 @@ const styles = StyleSheet.create({
         width: "auto",
         textAlign: 'center',
         fontWeight: 'bold',
-        
+
     },
-    btn:{
+    btn: {
         flexGrow: 1,
         borderTopColor: 'black',
         borderTopWidth: 2,
         maxWidth: '33.3%',
     }
-    
-  });
+
+});
 export default TopBar

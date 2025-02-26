@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const axiosMessageInstance = axios.create({
-    baseURL: "api.ktkv.dev"
+    baseURL: process.env.EXPO_PUBLIC_URL
 })
 
 const mesRequest = {
