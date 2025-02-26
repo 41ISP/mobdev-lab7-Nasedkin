@@ -9,7 +9,7 @@ export interface IStorage {
     user: IUser,
     users: IUser[],
     setUser: (user: IUser) => void,
-    addUser: (user: IUser) => void
+    setUsers: (user: IUser[]) => void
 }
 
 export const useStorage = create<IStorage>()(
@@ -17,8 +17,8 @@ export const useStorage = create<IStorage>()(
         (set) => ({
             user: { id: '' },
             users: [],
-            setUser: ((user) => set((name) => ({ ...name, user: user }))),
-            addUser: (name) => set((user) => ({ ...user, users: [...user.users, name] }))
+            setUser: ((user) => set((state) => ({ ...state, user: user }))),
+            setUsers: (users) => set((state) => ({ ...state, users }))
         }), {
         name: 'UserName',
         storage: createJSONStorage(() => AsyncStorage)

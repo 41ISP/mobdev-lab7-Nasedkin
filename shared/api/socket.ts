@@ -1,21 +1,26 @@
 import { io } from "socket.io-client";
 
-const socket = io("")
+const users = {}
+const messages = []
 
-socket.emit()
-socket.on('connection', (socket) => {
-    socket.on('register', (id) => {
-        
-        socket.emit()
-    }),
-    socket.on('private_message', (data) => {
-        const {to, message} = data
+export const socket = io("")
 
-    }),
-    socket.on('disconnect', () => {
 
-        socket.emit()
-    })
-})
-socket.disconnect()
-socket.
+
+// socket.emit()
+// socket.on('connection', (socket) => {
+//     socket.on('register', (id) => {
+//         socket.
+//         socket.emit()
+//     }),
+//     socket.on('private_message', (data) => {
+//         const {to, message} = data
+//         const reciever = data[to]
+//     }),
+//     socket.on('disconnect', () => {
+
+//         socket.emit()
+//     })
+// })
+// socket.disconnect()
+// socket.

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 48,
-        color: '#01172F',
+        color: '#091540',
     },
 });
 export default MessagebarInput

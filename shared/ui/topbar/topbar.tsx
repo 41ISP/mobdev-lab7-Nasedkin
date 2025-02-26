@@ -33,6 +33,8 @@ const TopBar = () => {
         </View>
     )
 }
+
+//1F0322
 const styles = StyleSheet.create({
     container: {
         alignSelf: 'flex-start',

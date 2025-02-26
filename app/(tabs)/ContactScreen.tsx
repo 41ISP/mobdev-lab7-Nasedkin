@@ -8,7 +8,7 @@ export default function ContactScreen() {
 
     return (
         <SafeAreaProvider>
-            <View style={{ flexDirection: 'row', padding: 5, borderColor: 'black', borderBottomWidth: 2, justifyContent: 'center', backgroundColor: '#01172F' }}>
+            <View style={{ flexDirection: 'row', padding: 5, borderColor: 'black', borderBottomWidth: 2, justifyContent: 'center', backgroundColor: '#091540' }}>
                 <Text style={{ color: '#F2BB05', fontSize: 24, verticalAlign: 'middle', fontWeight: 'bold' }}>
                     Показать онлайн
                 </Text>
