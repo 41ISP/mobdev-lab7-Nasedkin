@@ -8,8 +8,6 @@ interface IStatus extends PropsWithChildren {
 
 const Contact = ({ online }: IStatus) => {
 
-    const [users] = useState<IStorage>()
-
     const handleOpenChat = () => {
         alert('Будет открыт чат с пользователем')
     }
@@ -21,7 +19,6 @@ const Contact = ({ online }: IStatus) => {
             <View style={styles.somemargin}>
                 <Text style={styles.text}>
                     {useStorage().user.id}
-
                 </Text>
                 <Text style={online ? styles.onlineUser : styles.offlineUser}>
                     Онлайн/Оффлайн

@@ -1,9 +1,14 @@
+import { useStorage } from "@/shared/stor/stor";
 import Message from "@/shared/ui/message/message";
 import MessagebarInput from "@/shared/ui/messageinput/messageinput";
+import { PropsWithChildren } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function MessageScreen() {
+export default function MessageScreen({ online }: IStatus) {
+
+
+
     return (
         <SafeAreaProvider>
             <View style={styles.container}>
@@ -11,10 +16,10 @@ export default function MessageScreen() {
                     <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
                     <View style={styles.somemargin}>
                         <Text style={styles.text}>
-                            Имя пользователя
+                            {useStorage().friend.id}
                         </Text>
                         <Text style={styles.text2}>
-                            Онлайн
+                            {if(useStorage().friend.socketID){}}
                         </Text>
                     </View>
                 </View>
