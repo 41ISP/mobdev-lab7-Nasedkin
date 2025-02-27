@@ -11,13 +11,14 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import TopBar from '@/shared/ui/topbar/topbar';
 import { Text, View } from 'react-native';
 import { IStorage, useStorage } from '@/shared/stor/stor';
-import { socket } from '@/shared/api/socket';
+import { useSocket } from '@/shared/api/socket';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   const [mounted, setIsMounted] = useState(false)
   const rtr = useRouter()
+  const {socket} = useSocket()
   const { user, users, setUsers } = useStorage()
   useEffect(() => {
     setIsMounted(true)
@@ -27,12 +28,25 @@ export default function TabLayout() {
     if (mounted && !user.id) {
       rtr.push('/login')
     }
-    else {
-      socket.on('register', (id) => {
+  }, [mounted])
+  
+  useEffect(() => {
+    console.log("connecting to socket1");
+    if(user.id && socket) {
+      console.log("connecting to socket2");
+      
+      socket.on('private_messages', (id) => {
+        console.log(id)
         setUsers(id)
       })
+      console.log(socket);
+
     }
-  }, [mounted])
+      
+    return () => { 
+      socket && socket.off("register")
+    }
+  }, [socket])
 
   const handlePress = () => {
     rtr.push('/login')

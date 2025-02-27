@@ -7,11 +7,8 @@ const axiosMessageInstance = axios.create({
 const messangerRequest = {
     loginReq: async (id: string) => {
         const response = await axiosMessageInstance.post('/login', {
-            withCredentials: false,
-            data: JSON.stringify({
                 id: id
             })
-        })
         return response
     },
     messagesReq: async (id: string) => {

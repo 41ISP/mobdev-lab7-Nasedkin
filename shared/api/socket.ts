@@ -1,10 +1,18 @@
-import { io } from "socket.io-client";
+import { useEffect, useState } from "react";
+import { io, Socket } from "socket.io-client";
 
 const users = {}
 const messages = []
 
-export const socket = io("")
+export const useSocket = () => {
+    const [socket, setSocket] = useState<undefined | Socket>(undefined)
+    useEffect(() => {
+        setSocket(io(process.env.EXPO_PUBLIC_URL))
+        socket && socket.connect()
+    }, [])
 
+    return {socket}
+}
 
 
 // socket.emit()
