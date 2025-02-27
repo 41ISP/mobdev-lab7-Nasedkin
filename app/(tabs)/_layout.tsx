@@ -13,25 +13,26 @@ import { Text, View } from 'react-native';
 import { IStorage, useStorage } from '@/shared/stor/stor';
 import { socket } from '@/shared/api/socket';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
+  const [mounted, setIsMounted] = useState(false)
   const rtr = useRouter()
   const { user, users, setUsers } = useStorage()
   useEffect(() => {
-    if (!user.id) {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (mounted && !user.id) {
       rtr.push('/login')
     }
     else {
       socket.on('register', (id) => {
-        socket.id = id
         setUsers(id)
       })
     }
-  }, [])
+  }, [mounted])
 
   const handlePress = () => {
     rtr.push('/login')

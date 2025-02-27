@@ -1,3 +1,4 @@
+import messangerRequest from "@/shared/api/api";
 import { IStorage, IUser, useStorage } from "@/shared/stor/stor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router, Stack } from "expo-router";
@@ -8,15 +9,21 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 export default function LoginScreen() {
 
     const [userName, setUserName] = useState('')
-    const { setUser, addUser } = useStorage()
+    const { setUser, setUsers } = useStorage()
     const [users] = useState<IStorage>()
 
     const handlePress = async () => {
         if (userName.trim().length != 0) {
-            setUser({ id: userName })
-            addUser({ id: userName })
-            console.log(users)
-            router.replace('/(tabs)')
+            try {
+                messangerRequest.loginReq(userName)
+
+                setUser({ id: userName })
+
+                router.push('/(tabs)')
+            }
+            catch {
+                console.error()
+            }
         }
         else alert('Ошибка, проверьте заполнение строки')
     }
