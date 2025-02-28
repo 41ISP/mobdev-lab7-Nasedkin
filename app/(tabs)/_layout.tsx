@@ -18,8 +18,8 @@ export default function TabLayout() {
 
   const [mounted, setIsMounted] = useState(false)
   const rtr = useRouter()
-  const {socket} = useSocket()
-  const { user, users, setUsers } = useStorage()
+  const { socket } = useSocket()
+  const { user, users, setUsers, setUser } = useStorage()
   useEffect(() => {
     setIsMounted(true)
   }, [])
@@ -29,12 +29,12 @@ export default function TabLayout() {
       rtr.push('/login')
     }
   }, [mounted])
-  
+
   useEffect(() => {
     console.log("connecting to socket1");
-    if(user.id && socket) {
+    if (user.id && socket) {
       console.log("connecting to socket2");
-      
+
       socket.on('private_messages', (id) => {
         console.log(id)
         setUsers(id)
@@ -42,23 +42,23 @@ export default function TabLayout() {
       console.log(socket);
 
     }
-      
-    return () => { 
+
+    return () => {
       socket && socket.off("register")
     }
   }, [socket])
 
   const handlePress = () => {
     rtr.push('/login')
+    setUser({ id: '' })
   }
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="index" options={{ title: 'Чаты', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: '#FF006E', fontSize: 20 }} onPress={handlePress}>Выход</Text></View>) }} />
-        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: '#FF006E', fontSize: 20 }} onPress={handlePress}>Выход</Text></View>) }} />
-        <Stack.Screen name
-          ="MessageScreen" options={{ title: 'Чат', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: '#FF006E', fontSize: 20 }} onPress={handlePress}>Выход</Text></View>) }} />
+        <Stack.Screen name="index" options={{ title: 'Чаты', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: '#FF006E', fontSize: 20, margin: 10 }} onPress={handlePress}>Выход</Text></View>) }} />
+        <Stack.Screen name="ContactScreen" options={{ title: 'Контакты', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: '#FF006E', fontSize: 20, margin: 10 }} onPress={handlePress}>Выход</Text></View>) }} />
+        <Stack.Screen name="MessageScreen" options={{ title: 'Чат', headerTitleAlign: 'center', headerRight: () => (<View><Text style={{ color: '#FF006E', fontSize: 20, margin: 10 }} onPress={handlePress}>Выход</Text></View>) }} />
       </Stack>
       <TopBar />
     </ThemeProvider>

@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     btn: {
         flexGrow: 1,
         borderTopColor: 'black',
-        borderTopWidth: 2,
+        borderTopWidth: 3,
         maxWidth: '33.3%',
     }
 

@@ -16,7 +16,7 @@ const MessagebarInput = () => {
 const styles = StyleSheet.create({
     input: {
         borderWidth: 2,
-        borderColor: '#01172F',
+        borderColor: '#1F0322',
         borderRadius: 5,
         margin: 10,
         width: '80%',
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 48,
-        color: '#091540',
+        color: '#1F0322',
     },
 });
 export default MessagebarInput

@@ -5,9 +5,7 @@ import { PropsWithChildren } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function MessageScreen({ online }: IStatus) {
-
-
+export default function MessageScreen() {
 
     return (
         <SafeAreaProvider>
@@ -19,7 +17,7 @@ export default function MessageScreen({ online }: IStatus) {
                             {useStorage().friend.id}
                         </Text>
                         <Text style={styles.text2}>
-                            {if(useStorage().friend.socketID){}}
+                            {useStorage().friend.socketId}
                         </Text>
                     </View>
                 </View>
