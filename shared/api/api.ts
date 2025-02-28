@@ -14,7 +14,7 @@ const messangerRequest = {
     messagesReq: async (id: string) => {
         const response = await axiosMessageInstance.get('/messages/' + id)
         return response
-    }
+    },
 }
 
 export default messangerRequest

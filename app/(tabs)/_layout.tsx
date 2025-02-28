@@ -11,17 +11,27 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import TopBar from '@/shared/ui/topbar/topbar';
 import { Text, View } from 'react-native';
 import { IStorage, useStorage } from '@/shared/stor/stor';
-import { useSocket } from '@/shared/api/socket';
+import { io, Socket } from 'socket.io-client';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   const [mounted, setIsMounted] = useState(false)
   const rtr = useRouter()
-  const { socket } = useSocket()
+  const [socket, setSocket] = useState<null | Socket>(null)
   const { user, users, setUsers, setUser } = useStorage()
   useEffect(() => {
-    setIsMounted(true)
+    const newSocket = io(process.env.EXPO_PUBLIC_URL)
+    setSocket(newSocket)
+
+    newSocket.emit("register", user.id)
+
+    newSocket.on('users', (users) => {
+        console.log(users);
+        setUsers(users)
+    })
+
+    return () => { newSocket.disconnect() }
   }, [])
 
   useEffect(() => {
@@ -30,23 +40,23 @@ export default function TabLayout() {
     }
   }, [mounted])
 
-  useEffect(() => {
-    console.log("connecting to socket1");
-    if (user.id && socket) {
-      console.log("connecting to socket2");
+  // useEffect(() => {
+  //   console.log("connecting to socket1");
+  //   if (user.id && socket) {
+  //     console.log("connecting to socket2");
 
-      socket.on('private_messages', (id) => {
-        console.log(id)
-        setUsers(id)
-      })
-      console.log(socket);
+  //     socket.on('private_messages', (id) => {
+  //       console.log(id)
+  //       setUsers(id)
+  //     })
+  //     console.log(socket);
 
-    }
+  //   }
 
-    return () => {
-      socket && socket.off("register")
-    }
-  }, [socket])
+  //   return () => {
+  //     socket && socket.off("register")
+  //   }
+  // }, [socket])
 
   const handlePress = () => {
     rtr.push('/login')

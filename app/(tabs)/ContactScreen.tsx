@@ -1,10 +1,16 @@
 import { IStorage, IUser, useStorage } from "@/shared/stor/stor";
 import Contact from "@/shared/ui/contact/contact";
 import { useState } from "react";
-import { Image, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function ContactScreen() {
+
+    const { user, users, setUsers, setUser } = useStorage()
+
+    const userList = [...users].sort((a) =>
+        a.socketId ? -1 : 1,
+    );
 
     return (
         <SafeAreaProvider>
@@ -15,13 +21,11 @@ export default function ContactScreen() {
                 <Switch />
             </View>
             <ScrollView style={styles.container}>
-                <View >
-                    <View>
-                        <Contact online />
-                    </View>
-                </View>
+                <FlatList data={userList} keyExtractor={(item) => item.id} renderItem={(
+                    { item }
+                ) => <Contact {...item} />} />
             </ScrollView>
-        </SafeAreaProvider>
+        </SafeAreaProvider >
     )
 }
 const styles = StyleSheet.create({

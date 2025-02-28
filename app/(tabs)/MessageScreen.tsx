@@ -1,4 +1,4 @@
-import { useStorage } from "@/shared/stor/stor";
+import { IUser, useStorage } from "@/shared/stor/stor";
 import Message from "@/shared/ui/message/message";
 import MessagebarInput from "@/shared/ui/messageinput/messageinput";
 import { PropsWithChildren } from "react";
@@ -7,6 +7,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function MessageScreen() {
 
+    const {users, friend} = useStorage()
+
     return (
         <SafeAreaProvider>
             <View style={styles.container}>
@@ -14,10 +16,10 @@ export default function MessageScreen() {
                     <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
                     <View style={styles.somemargin}>
                         <Text style={styles.text}>
-                            {useStorage().friend.id}
+                            {friend}
                         </Text>
                         <Text style={styles.text2}>
-                            {useStorage().friend.socketId}
+                            {users.find((user) => user == friend)}
                         </Text>
                     </View>
                 </View>

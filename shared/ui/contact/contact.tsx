@@ -1,27 +1,28 @@
-import { IStorage, useStorage } from "@/shared/stor/stor";
+import { IStorage, IUser, useStorage } from "@/shared/stor/stor";
+import { useRouter } from "expo-router";
 import { PropsWithChildren, useState } from "react";
 import { Image, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 
-interface IStatus extends PropsWithChildren {
-    online?: boolean
-}
+const Contact = ({ socketId, id }: IUser) => {
 
-const Contact = ({ online }: IStatus) => {
-
+    const router = useRouter()
+    const { setFriend } = useStorage()
     const handleOpenChat = () => {
         alert('Будет открыт чат с пользователем')
+        router.push('/MessageScreen')
+        setFriend(id)
     }
 
     return (
 
-        <View style={styles.info} onTouchEnd={handleOpenChat}>
+        <View style={styles.info} onTouchEnd={handleOpenChat} onPointerDown={handleOpenChat}>
             <Image src="https://static.tildacdn.com/tild3663-3631-4432-b966-326630376466/97394.png" style={styles.icon} />
             <View style={styles.somemargin}>
                 <Text style={styles.text}>
-                    {useStorage().user.id}
+                    {id}
                 </Text>
-                <Text style={online ? styles.onlineUser : styles.offlineUser}>
-                    Онлайн/Оффлайн
+                <Text style={socketId ? styles.onlineUser : styles.offlineUser}>
+                    {socketId ? "Онлайн" : "Оффлайн"}
                 </Text>
             </View>
         </View>

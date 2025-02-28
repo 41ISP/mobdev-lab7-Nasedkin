@@ -6,19 +6,21 @@ export interface IUser {
     socketId?: string
 }
 export interface IStorage {
-    friend: IUser,
+    friend: string,
     user: IUser,
     users: IUser[],
     setUser: (user: IUser) => void,
-    setUsers: (user: IUser[]) => void
+    setUsers: (user: IUser[]) => void,
+    setFriend: (user: string) => void
 }
 
 export const useStorage = create<IStorage>()(
     persist(
         (set) => ({
-            friend: { id: '' },
+            friend: "",
             user: { id: '' },
             users: [],
+            setFriend: ((id) => set((state) => ({ ...state, friend: id }))),
             setUser: ((user) => set((state) => ({ ...state, user: user }))),
             setUsers: (users) => set((state) => ({ ...state, users }))
         }), {
